@@ -1,5 +1,8 @@
 <?php
 
+//questo file viene eseguito solo per inizializzare il progetto
+//mi server per connettermi al database e creare tabelle
+
 //dati per configurazione DB in locale (MAMP)
 $host = 'localhost';
 $port = '8889';

@@ -10,7 +10,7 @@
 <div class="container">
         <h2>Registrazione</h2>
 
-        <form action="register_handler.php" method="POST">
+        <form action="../controllers/registerController.php" method="POST">
 
             <div class="form-group">
                 <label for="first_name">Nome:</label>
