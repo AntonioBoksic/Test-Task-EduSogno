@@ -16,7 +16,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute([$first_name, $last_name, $email, $hashed_password]);
 
     // Reindirizza l'utente o mostra un messaggio di successo
-    header("Location: login.php");
+    header("Location: ../views/login.php");
+    exit();
 }
 
 ?>

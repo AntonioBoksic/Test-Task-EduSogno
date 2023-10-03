@@ -48,12 +48,26 @@ $createEventsTable = "
         id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         title VARCHAR(255) NOT NULL,
         description TEXT,
-        attendees TEXT
+        date DATETIME
     )
 ";
 
 //creo tabella events
 $pdo->exec($createEventsTable);
+
+$createEventUserTable = "
+    CREATE TABLE event_user (
+        id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        user_id BIGINT UNSIGNED,
+        event_id BIGINT UNSIGNED,
+        UNIQUE(user_id, event_id),
+        FOREIGN KEY(user_id) REFERENCES users(id),
+        FOREIGN KEY(event_id) REFERENCES events(id)
+    )
+";
+
+//creo tabella events
+$pdo->exec($createEventUserTable);
 
 //se tutto il codice gira senza problemi otterrò questo messaggio
 echo "Tabelle create con successo!";
