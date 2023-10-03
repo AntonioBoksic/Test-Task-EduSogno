@@ -6,7 +6,7 @@ function sendResetEmail($toEmail, $token) {
 
     // Il corpo dell'email
     $message = "Hello,\n\nIt seems like you requested a password reset. Please click on the link below to reset your password:\n";
-    $message .= "http://localhost:8888/Test-Task-EduSogno/views/resetPassword.php" . $token . "\n\n";
+    $message .= "http://localhost:8888/Test-Task-EduSogno/views/resetPassword.php". "?token=" . $token . "\n\n";
     $message .= "If you did not request this password reset, please ignore this email.\n";
     
     // Gli headers dell'email
