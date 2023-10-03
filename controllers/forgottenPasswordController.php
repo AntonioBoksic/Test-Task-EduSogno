@@ -4,6 +4,9 @@
 include '../database.php'; 
 include '../mailer.php'; 
 
+// avvio la sessione per potermi salvare il messaggio da far vedere nella view forgottenPassword.php da cui viene mandata la richiesta di reset
+session_start();
+
 //definizione funzione per vedere se email esiste nel database
 function checkEmailExists($email, $pdo) {
     // Prepariamo la query SQL
@@ -35,11 +38,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['email'])) {
         $token = bin2hex(random_bytes(32)); // Funzione che devi definire
 
         // Invia l'email per la reimpostazione della password
-        sendResetEmail($email, $token); // Funzione che devi definire
+        sendResetEmail($email, $token); // Funzione definita in mailer.php
         
         // Qui potresti anche memorizzare il token nel database associato all'email dell'utente,
         // per poi verificarlo quando l'utente clicca sul link nel suo email
     } else {
-        // Gestisci il caso in cui l'email non esiste nel database (mostra un errore, reindirizza, ecc.)
-    }
+        $_SESSION['message'] = "Email does not exist in our database.";
+        header('Location: http://localhost:8888/Test-Task-EduSogno/views/forgottenPassword.php');
+        exit;    }
 }
+

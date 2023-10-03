@@ -14,11 +14,17 @@ function sendResetEmail($toEmail, $token) {
                'Reply-To: webmaster@yourwebsite.com' . "\r\n" .
                'X-Mailer: PHP/' . phpversion();
 
+
+
     // Usa la funzione mail() di PHP per inviare l'email
     if(mail($toEmail, $subject, $message, $headers)) {
-        echo "Email sent successfully!";
+        $_SESSION['message'] = "Email sent successfully!";
     } else {
-        echo "Email failed to send.";
+        $_SESSION['message'] = "Email failed to send.";
     }
+    
+    // Reindirizza l'utente a forgottenPassword.php
+    header('Location: http://localhost:8888/Test-Task-EduSogno/views/forgottenPassword.php');
+    exit;
 }
 ?>

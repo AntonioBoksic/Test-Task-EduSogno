@@ -29,5 +29,16 @@
 
 </form>
 
+<?php
+//avvio la sessione per passarmi il messaggio di successo/fallimento del mailer
+session_start();
+
+if(isset($_SESSION['message'])) {
+    echo htmlspecialchars($_SESSION['message']);
+    // Dimentica il messaggio per evitare che venga mostrato nuovamente in futuro
+    unset($_SESSION['message']);
+}
+?>
+
 </body>
 </html>
