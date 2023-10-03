@@ -5,8 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
+
 <body>
+
+<?php include '../includes/header.php'; ?>
+
 <div class="login-container">
     <h2>Accedi</h2>
     <form action="../controllers/loginController.php" method="POST">
@@ -36,9 +41,18 @@
         ?>
         
         <button type="submit">Accedi</button>
+
+        
     </form>
 
-   <a href="register.php">Non hai un account? Registrati</a>
+    <div>
+        <a href="register.php">Non hai un account? Registrati</a>
+    </div>
+
+    <div>
+        <a href="forgottenPassword.php">Pasword Dimenticata?</a>
+    </div>
+
 
   
 </div>
