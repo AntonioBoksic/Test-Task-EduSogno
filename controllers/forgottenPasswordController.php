@@ -1,6 +1,6 @@
 <?php
 
-// Includo il file di connessione al database e/o le funzioni di mail
+// Includo il file di connessione al database e le funzioni di mail
 include '../database.php'; 
 include '../mailer.php'; 
 
@@ -26,16 +26,26 @@ function checkEmailExists($email, $pdo) {
 // Controlla se la richiesta POST ha l'email e non è vuota
 if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['email'])) {
 
-    // Pulisci l'email per evitare injection
-    //$email = cleanInput($_POST['email']);
+    //qui probabilmente si può fare meglio a livello di sicurezza, per garantire che non ci siano possibilità di injection, ma per questo progetto può andare bene così
     $email = $_POST['email'];
     
     // Verifica se l'email esiste nel database
-    $exists = checkEmailExists($email, $pdo); // Funzione che devi definire
+    $exists = checkEmailExists($email, $pdo); // Funzione definita sopra
     
     if ($exists) {
         // Crea un token unico per la reimpostazione della password
-        $token = bin2hex(random_bytes(32)); // Funzione che devi definire
+        $token = bin2hex(random_bytes(32));
+        //$expires ci servirà per il timestamp al quale vogliamo far scadere il token
+        $expires = new DateTime('NOW');
+        $expires->add(new DateInterval('PT1H')); // Fai scadere il token dopo 1 ora
+
+        // Aggiorna l'utente nel database con il token e il timestamp di scadenza
+        $stmt = $pdo->prepare("UPDATE users SET password_reset_token = :token, password_reset_expires = :expires WHERE email = :email");
+        $stmt->bindParam(':token', $token);
+        $expiresFormatted = $expires->format('Y-m-d H:i:s');
+        $stmt->bindParam(':expires', $expiresFormatted);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
 
         // Invia l'email per la reimpostazione della password
         sendResetEmail($email, $token); // Funzione definita in mailer.php

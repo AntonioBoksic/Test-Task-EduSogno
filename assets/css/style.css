@@ -1,15 +1,16 @@
 header {
+    height: 163px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;  /* aggiunto un padding per un po' di spazio intorno agli elementi dell'header */
-    background-color: #f8f8f8;  /* un colore di sfondo leggero per l'header */
+    background-color: white;
     border-bottom: 2px solid #ccc;  /* un sottile bordo in basso per separare l'header dal contenuto */
 }
 
 .logo img {
-    max-width: 150px;  /* o qualsiasi altra dimensione tu preferisca */
-    height: auto;
+    max-width: 123px;  /* o qualsiasi altra dimensione tu preferisca */
+    height: 52px;
 }
 
 .nav {
