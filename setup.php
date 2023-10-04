@@ -28,11 +28,11 @@ try {
 }
 
 // specifico le caratteristiche della tabella users
-$createUsersTable = "
-    CREATE TABLE users (
+$createUtentiTable = "
+        CREATE TABLE IF NOT EXISTS utenti (
         id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        first_name VARCHAR(255) NOT NULL,
-        last_name VARCHAR(255) NOT NULL,
+        nome VARCHAR(255) NOT NULL,
+        cognome VARCHAR(255) NOT NULL,
         email VARCHAR(255) UNIQUE NOT NULL,
         password VARCHAR(255) NOT NULL,
         is_admin BOOLEAN DEFAULT FALSE,
@@ -42,35 +42,36 @@ $createUsersTable = "
 ";
 
 //creo tabella users
-$pdo->exec($createUsersTable);
+$pdo->exec($createUtentiTable);
 
 // specifico le caratteristiche della tabella events
-$createEventsTable = "
-    CREATE TABLE events (
+$createEventiTable = "
+        CREATE TABLE IF NOT EXISTS eventi (
         id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        title VARCHAR(255) NOT NULL,
-        description TEXT,
-        date DATETIME
+        attendees text,
+        nome_evento VARCHAR(255) NOT NULL,
+        data_evento DATETIME
     )
 ";
 
 //creo tabella events
-$pdo->exec($createEventsTable);
+$pdo->exec($createEventiTable);
 
-$createEventUserTable = "
-    CREATE TABLE event_user (
-        id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        user_id BIGINT UNSIGNED,
-        event_id BIGINT UNSIGNED,
-        UNIQUE(user_id, event_id),
-        FOREIGN KEY(user_id) REFERENCES users(id),
-        FOREIGN KEY(event_id) REFERENCES events(id)
-    )
+// Dati di esempio per eventi
+$insertEventData = "
+    INSERT INTO `eventi`(`attendees`, `nome_evento`, `data_evento`) 
+    VALUES 
+    ('ulysses200915@varen8.com,qmonkey14@falixiao.com,mavbafpcmq@hitbase.net','Test Edusogno 1', '2022-10-13 14:00'), 
+    ('dgipolga@edume.me,qmonkey14@falixiao.com,mavbafpcmq@hitbase.net','Test Edusogno 2', '2022-10-15 19:00'), 
+    ('dgipolga@edume.me,ulysses200915@varen8.com,mavbafpcmq@hitbase.net','Test Edusogno 3', '2022-10-15 19:00');
 ";
 
-//creo tabella events
-$pdo->exec($createEventUserTable);
+// Inserisco i dati di esempio nella tabella eventi
+$pdo->exec($insertEventData);
 
 //se tutto il codice gira senza problemi otterrò questo messaggio
 echo "Tabelle create con successo!";
 //n.b. se tento di ri-eseguire questo codice dopo aver ottenuto il messaggio sopra non ri-otterrò questo messaggio dato che il codice si imbatterà in un'errore prima di arrivare qui, in quanto le tabella sono state già create
+
+
+    
