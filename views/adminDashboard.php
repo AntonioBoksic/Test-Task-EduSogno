@@ -1,3 +1,5 @@
+<?php include '../includes/header.php'; ?>
+
 <!-- appena utente entra sulla pagina controllo se è loggato e se è admin, altrimento lo reindirizzo su login.php -->
 <?php
 session_start();
@@ -10,7 +12,6 @@ if(!isset($_SESSION['user_id']) || !$_SESSION['is_admin']) {
 }
 ?>
 
-<?php include '../includes/header.php'; ?>
 
 
     
