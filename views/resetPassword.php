@@ -34,7 +34,7 @@ if(isset($_GET['token'])) {
 
     try {
         // Preparare la query SQL
-        $stmt = $pdo->prepare("SELECT * FROM users WHERE password_reset_token = :token");
+        $stmt = $pdo->prepare("SELECT * FROM utenti WHERE password_reset_token = :token");
         
         // Esegui la query con il token fornito
         $stmt->execute([':token' => $token]);

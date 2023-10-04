@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
 
     // Recupero l'utente dal database tramite l'email
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
+    $stmt = $pdo->prepare("SELECT * FROM utenti WHERE email = ?");
     $stmt->execute([$email]);
 
     $user = $stmt->fetch();
@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Password corretta
 
             $_SESSION['user_id'] = $user['id'];
-            $_SESSION['user_name'] = $user['first_name'] . ' ' . $user['last_name'];
+            $_SESSION['user_name'] = $user['nome'] . ' ' . $user['cognome'];
             // etc...
 
             header("Location: ../views/dashboard.php");  // Supponendo che tu abbia una pagina dashboard per gli utenti loggati

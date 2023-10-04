@@ -12,14 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;0,9..40,1000;1,9..40,100;1,9..40,200;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600;1,9..40,700;1,9..40,800;1,9..40,900;1,9..40,1000&display=swap" rel="stylesheet">
 </head>
 
-<body>
-
-<?php include '../includes/header.php'; ?>
-
-
-
-
-
 
 <?php
 session_start();
@@ -32,37 +24,29 @@ if(!isset($_SESSION['user_id'])) {
 }
 
 // Recupero informazioni utente
-$stmt = $pdo->prepare("SELECT * FROM users WHERE id = ?");
+$stmt = $pdo->prepare("SELECT * FROM utenti WHERE id = ?");
 $stmt->execute([$_SESSION['user_id']]);
 $user = $stmt->fetch();
 
-// Recupero eventi dell'utente
-$stmt = $pdo
-->prepare("SELECT e.title FROM events e
-JOIN event_user eu ON eu.event_id = e.id
-WHERE eu.user_id = ?
-");
-$stmt->execute([$_SESSION['user_id']]);
+// Recupero eventi dove l'utente è un partecipante
+$email = $user['email'];
+$stmt = $pdo->prepare("SELECT * FROM eventi WHERE FIND_IN_SET(?, attendees)");
+$stmt->execute([$email]);
 $events = $stmt->fetchAll();
-
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Metatags, link CSS, etc... -->
-    <title>Dashboard</title>
-</head>
 <body>
 
-<h1>Welcome <?php echo htmlspecialchars($user['first_name'] . ' ' . $user['last_name']); ?></h1>
+<?php include '../includes/header.php'; ?>
+
+<h1>Welcome <?php echo htmlspecialchars($user['nome'] . ' ' . $user['cognome']); ?></h1>
 
 <h2>Your Events:</h2>
 <ul>
     <?php 
     if($events) {
         foreach($events as $event) {
-            echo '<li>' . htmlspecialchars($event['name']) . '</li>';
+            echo '<li>' . htmlspecialchars($event['nome_evento']) . ' at ' . htmlspecialchars($event['data_evento']) . '</li>';
         }
     } else {
         echo "No events found.";

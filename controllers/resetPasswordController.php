@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Verifica il token (validità e scadenza)
         
         // Seleziona l'utente corrispondente al token dal database
-        $stmt = $pdo->prepare("SELECT * FROM users WHERE password_reset_token = :token");
+        $stmt = $pdo->prepare("SELECT * FROM utenti WHERE password_reset_token = :token");
         $stmt->execute([':token' => $token]);
         $user = $stmt->fetch();
 
@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
                 
                 // Aggiornamento della password nel database
-                $stmt = $pdo->prepare("UPDATE users SET password = :password, password_reset_token = NULL, password_reset_expires = NULL WHERE id = :id");
+                $stmt = $pdo->prepare("UPDATE utenti SET password = :password, password_reset_token = NULL, password_reset_expires = NULL WHERE id = :id");
                 $stmt->execute([':password' => $hashedPassword, ':id' => $user['id']]);
                 
                 // Reindirizza o informa l'utente del successo

@@ -27,16 +27,16 @@
             <form action="../controllers/registerController.php" method="POST">
 
                 <div class="form-group">
-                    <label for="first_name">inserisci il nome</label>
+                    <label for="nome">inserisci il nome</label>
                     <div>
-                        <input type="text" id="first_name" name="first_name" placeholder="Mario"required>
+                        <input type="text" id="nome" name="nome" placeholder="Mario"required>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="last_name">inserisci il cognome</label>
+                    <label for="cognome">inserisci il cognome</label>
                     <div>
-                        <input type="text" id="last_name" name="last_name" placeholder="Rossi" required>
+                        <input type="text" id="cognome" name="cognome" placeholder="Rossi" required>
                     </div>
                 </div>
 
@@ -74,8 +74,8 @@
 // Includi qui la tua connessione al database
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $first_name = $_POST["first_name"];
-    $last_name = $_POST["last_name"];
+    $first_name = $_POST["nome"];
+    $last_name = $_POST["cognome"];
     $email = $_POST["email"];
     $password = $_POST["password"];
 
@@ -83,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Inserimento nel database (usa un prepared statement per la sicurezza)
-    $stmt = $pdo->prepare("INSERT INTO users (first_name, last_name, email, password) VALUES (?, ?, ?, ?)");
+    $stmt = $pdo->prepare("INSERT INTO utenti (nome, cognome, email, password) VALUES (?, ?, ?, ?)");
     $stmt->execute([$first_name, $last_name, $email, $hashed_password]);
 
     // Reindirizza l'utente o mostra un messaggio di successo

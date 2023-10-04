@@ -13,7 +13,7 @@ session_start();
 //definizione funzione per vedere se email esiste nel database
 function checkEmailExists($email, $pdo) {
     // Prepariamo la query SQL
-    $stmt = $pdo->prepare("SELECT COUNT(*) FROM users WHERE email = :email");
+    $stmt = $pdo->prepare("SELECT COUNT(*) FROM utenti WHERE email = :email");
     $stmt->bindParam(':email', $email);
 
     // Eseguiamo la query
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['email'])) {
         $expires->add(new DateInterval('PT1H')); // Fai scadere il token dopo 1 ora
 
         // Aggiorna l'utente nel database con il token e il timestamp di scadenza
-        $stmt = $pdo->prepare("UPDATE users SET password_reset_token = :token, password_reset_expires = :expires WHERE email = :email");
+        $stmt = $pdo->prepare("UPDATE utenti SET password_reset_token = :token, password_reset_expires = :expires WHERE email = :email");
         $stmt->bindParam(':token', $token);
         $expiresFormatted = $expires->format('Y-m-d H:i:s');
         $stmt->bindParam(':expires', $expiresFormatted);
