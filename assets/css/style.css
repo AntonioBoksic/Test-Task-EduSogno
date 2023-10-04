@@ -1,16 +1,32 @@
+* {
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'DM Sans', sans-serif;
+
+}
+
 header {
-    height: 163px;
+    height: 150px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;  /* aggiunto un padding per un po' di spazio intorno agli elementi dell'header */
+    padding: 0px 20px;  /* aggiunto un padding per un po' di spazio intorno agli elementi dell'header */
     background-color: white;
     border-bottom: 2px solid #ccc;  /* un sottile bordo in basso per separare l'header dal contenuto */
+
+    /* Arrotonda gli angoli inferiori dell'header */
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+
+    /* Aggiunge un'ombra azzurra sotto al bordo inferiore */
+    box-shadow: 0px 4px 10px #0057FF;
 }
 
 .logo img {
-    max-width: 123px;  /* o qualsiasi altra dimensione tu preferisca */
-    height: 52px;
+    max-width: 120px;  /* o qualsiasi altra dimensione tu preferisca */
+    height: 50px;
 }
 
 .nav {
@@ -27,4 +43,51 @@ header {
 
 .nav a:hover {
     color: #007bff;  /* cambia colore quando il mouse passa sopra */
+}
+
+.primary-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.container-form {
+    text-align: center;
+    border: 1px solid #134077;
+    border-radius: 19px;
+    width: 350px;
+    height: 380px;
+}
+
+h2{
+    font-size: 32px;
+    color: #134077;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 13px;
+    color: #231F20;
+}
+
+a{
+    font-size: 13px;
+    color: #2D224C;
+}
+
+input{
+    font-size: 16px;
+    line-height: 20px;
+}
+
+button {
+    background-color: #0057FF;
+    color: white;
+    border-radius: 11px;
+    padding: 10px;
+    margin: 10px 10px;
 }

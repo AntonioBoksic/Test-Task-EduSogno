@@ -1,5 +1,8 @@
 <?php
 
+//imposto fuso orario di Roma,
+date_default_timezone_set('Europe/Rome');
+
 // Includo il file di connessione al database e le funzioni di mail
 include '../database.php'; 
 include '../mailer.php'; 
