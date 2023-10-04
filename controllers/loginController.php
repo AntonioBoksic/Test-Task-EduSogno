@@ -23,10 +23,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_name'] = $user['nome'] . ' ' . $user['cognome'];
-            // etc...
-
-            header("Location: ../views/dashboard.php");  // Supponendo che tu abbia una pagina dashboard per gli utenti loggati
+            
+            //qui verifico se l'utente loggato è admin o meno e lo salvo nella sessione.
+            $_SESSION['is_admin'] = $user['is_admin'] == 1 ? true : false;
+            
+            if($_SESSION['is_admin'] == true) {
+                header("Location: ../views/adminDashboard.php");
             exit();
+            } else {
+                header("Location: ../views/personalPage.php");
+                exit(); 
+            }
+
+
         } else {
             // Password errata
             $_SESSION['error'] = "Password errata o email non trovata";
