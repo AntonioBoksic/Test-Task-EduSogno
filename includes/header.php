@@ -19,7 +19,7 @@
     
     <header>
         <div class="logo">
-            <a href="index.php">
+            <a href="personalPage.php">
                 <img src="../assets/images/logo.png" alt="Your Website Logo">
             </a>
         </div>
