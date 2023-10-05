@@ -1,6 +1,6 @@
 <?php
-include("../models/Event.php");
-include("../database.php");
+include_once("../models/Event.php");
+include_once("../database.php");
 
 class EventController {
     private $pdo;
@@ -22,17 +22,14 @@ class EventController {
         return $events;
     }
 
-    public function show($id) {
-        $stmt = $this->pdo->prepare("SELECT * FROM eventi WHERE id = ?");
-        $stmt->execute([$id]);
-        $data = $stmt->fetch();
-
-        return new Event($data['id'], $data['nome_evento'], $data['attendees'], $data['data_evento']);
-    }
-
     public function create(Event $event) {
         $stmt = $this->pdo->prepare("INSERT INTO eventi (nome_evento, attendees, data_evento) VALUES (?, ?, ?)");
         $stmt->execute([$event->nome_evento, $event->attendees, $event->data_evento]);
+        if ($stmt->errorCode() != "00000") {
+            echo "Errore SQL: ";
+            print_r($stmt->errorInfo());
+            exit;
+        }
         return $this->pdo->lastInsertId(); 
     }
 
@@ -46,5 +43,4 @@ class EventController {
         return $stmt->execute([$event->id]);
     }
 
- 
 }
