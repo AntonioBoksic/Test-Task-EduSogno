@@ -274,11 +274,13 @@ button {
 
 .table-container {
     overflow-x: auto;
+    max-width: 100%;
     width: 100%;
 }
 
 
 table {
+    max-width: 100%;
     width: 100%;
     border-collapse: collapse;
     margin: 25px 0;
@@ -310,9 +312,12 @@ a:hover {
     text-decoration: underline;
 }
 
-.tabella-partecipanti{
-    max-width: 350px;
+.tabella-partecipanti .scroll-container {
+    max-width: 600px;
+    max-height: 50px;
     overflow-x: auto;
+    overflow-y: auto;
+    word-break: break-all;
 }
 
 /* messaggio per reset password */
