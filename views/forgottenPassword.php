@@ -18,8 +18,6 @@
 </form>
 
 <?php
-//avvio la sessione per passarmi il messaggio di successo/fallimento del mailer
-session_start();
 
 if(isset($_SESSION['message'])) {
     echo htmlspecialchars($_SESSION['message']);

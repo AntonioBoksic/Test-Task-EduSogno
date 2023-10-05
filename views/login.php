@@ -28,8 +28,7 @@
             
             <!-- messaggio di errore generico (per ragioni di sicurezza) in caso (1) email non esista o (2) email e password non corrispondono -->
             <?php
-            // riprendo la sessione creata in loginController.php
-            session_start();
+
 
             if(isset($_SESSION['error'])) {
                 echo '<p style="color: red;">' . $_SESSION['error'] . '</p>';

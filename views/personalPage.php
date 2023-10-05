@@ -1,7 +1,6 @@
 
 <?php
     include '../includes/header.php';
-    session_start();
 
     include('../database.php');
     include('../controllers/EventController.php');
@@ -27,18 +26,24 @@
 
     <h1>Welcome <?php echo htmlspecialchars($user['nome'] . ' ' . $user['cognome']); ?></h1>
 
-    <h2>Your Events:</h2>
-    <ul>
-        <?php 
-        if($events) {
-            foreach($events as $event) {
-                echo '<li>' . htmlspecialchars($event['nome_evento']) . ' at ' . htmlspecialchars($event['data_evento']) . '</li>';
-            }
-        } else {
-            echo "No events found.";
+    <h2>Ciao <?php $user['nome'] ?> ecco i tuoi eventi</h2>
+<div class="events-grid">
+    <?php 
+    if($events) {
+        foreach($events as $event) {
+            ?>
+            <div class="event-card">
+                <h3 class="event-name"><?= htmlspecialchars($event['nome_evento']) ?></h3>
+                <p class="event-date"><?= htmlspecialchars($event['data_evento']) ?></p>
+                <button class="join-btn">Join</button>
+            </div>
+            <?php
         }
-        ?>
-    </ul>
+    } else {
+        echo "No events found.";
+    }
+    ?>
+</div>
 
 </body>
 </html>
