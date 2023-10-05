@@ -32,11 +32,12 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="password">inserisci la password</label>
-                    <div>
+                <label for="password">inserisci la password</label>
+                <div style="position:relative;">
                     <input type="password" id="password" name="password" placeholder="Scrivila qui" required>
-                    </div>
+                    <img class="eye-icon togglePassword" src="../assets/images/eye-icon.png" alt="Show Password">
                 </div>
+            </div>
 
                 <button type="submit">REGISTRATI</button>
 

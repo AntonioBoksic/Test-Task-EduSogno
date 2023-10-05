@@ -22,7 +22,7 @@
                 <label for="password">inserisci la password</label>
                 <div style="position:relative;">
                     <input type="password" id="password" name="password" placeholder="Scrivila qui" required>
-                    <img class="eye-icon" src="../assets/images/eye-icon.png" alt="Show Password" id="togglePassword">
+                    <img class="eye-icon togglePassword" src="../assets/images/eye-icon.png" alt="Show Password">
                 </div>
             </div>
 
