@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $data_evento = $_POST['data_evento'];
     $attendees = $_POST['attendees'];
     
-    // Valida i dati se necessario
+    // Validare i dati se necessario
     
     $event = new Event($id, $nome_evento, $attendees, $data_evento);
     
