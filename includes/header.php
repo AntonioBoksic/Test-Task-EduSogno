@@ -1,5 +1,5 @@
 
-<!-- se questo header.php lo uso per tutte le view potrei anche eliminare session_start() da tutti gli altri file (?) -->
+<!-- se questo header.php lo uso per tutte le view potrei anche eliminare session_start() da tutte le altre view (?) (l'ho fatto e funziona giustamente)-->
 <?php
 session_start();
 ?>
@@ -21,6 +21,7 @@ session_start();
 
 <body>
     
+    <!-- header con logo e link/hamburger -->
     <header>
         <div class="logo">
             <a href="personalPage.php">
@@ -67,10 +68,33 @@ session_start();
 
     </header>
 
+    <!-- questo è lo sfondo che condividono tutte le view -->
+    <div class="view-background">
+        <!-- <img class="onda-seconda-dal-basso" src="../assets/images/Vector4.png" alt="">   -->
+        <img class="immagine-cerchio-destra" src="../assets/images/Ellipse12.png" alt="">  
+        <img class="immagine-cerchio-sinistra" src="../assets/images/Ellipse13.png" alt="">  
+        
+        
+        <img class="immagine-razzo" src="../assets/images/Group201.png" alt="">  
+        
+        <img class="onda-terza-dal-basso" src="../assets/images/Vector5.png" alt="">  
+        
+        <img class="onda-seconda-dal-basso" src="../assets/images/Vector4.png" alt="">  
+
+        <img class="onda-bianca-footer" src="../assets/images/Vector1.png" alt="">  
+    </div>
+
+    <!-- questo è lo sfondo che condividono tutte le view -->
+    <div class="view-content">
+
+    <!-- script per menu hamburger che appare a utenti loggati al posto dei link "longin" "register" -->
     <script>
     function toggleMenu() {
         var menu = document.getElementById("menu");
         menu.style.display = menu.style.display === "block" ? "none" : "block";
     }
     </script>
+
+<!-- il view-content si chiude nelle singole view -->
+<!-- il body si chiude nelle singole view -->
 

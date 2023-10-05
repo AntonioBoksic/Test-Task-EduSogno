@@ -41,5 +41,6 @@
 
 <!-- Includi eventuali JavaScript -->
 
+</div>
 </body>
 </html>

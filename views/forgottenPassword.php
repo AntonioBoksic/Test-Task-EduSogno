@@ -26,5 +26,6 @@ if(isset($_SESSION['message'])) {
 }
 ?>
 
+</div>
 </body>
 </html>

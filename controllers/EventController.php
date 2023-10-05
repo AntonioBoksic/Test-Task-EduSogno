@@ -56,6 +56,21 @@ class EventController {
 
     public function update(Event $event) {
         $stmt = $this->pdo->prepare("UPDATE eventi SET nome_evento = ?, attendees = ?, data_evento = ? WHERE id = ?");
+
+        // Invia email per un nuovo evento
+        
+        // Prepariamo i dettagli per l'email
+        // Convertiamo la stringa di attendees (email) in un array
+        $attendeesEmailAddresses = explode(',', $event->attendees);
+        $newEventSubject = "Evento EduSogno modificato!";
+        $newEventMessage = "Ciao, l' evento : " . $event->nome_evento . " è stato modificato " ;
+    
+        // Includi il tuo file mailer
+        include_once("../mailer.php"); 
+    
+        // Chiama la funzione per inviare l'email
+        $emailResults = sendEventEmail($attendeesEmailAddresses, $newEventSubject, $newEventMessage);
+
         return $stmt->execute([$event->nome_evento, $event->attendees, $event->data_evento, $event->id]);
     }
 

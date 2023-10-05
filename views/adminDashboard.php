@@ -76,5 +76,6 @@ $user = $stmt->fetch();
     }
     </script>
 
+</div>
 </body>
 
