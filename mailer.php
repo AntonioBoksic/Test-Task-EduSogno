@@ -18,7 +18,7 @@ function sendResetEmail($toEmail, $token) {
 
     // Usa la funzione mail() di PHP per inviare l'email
     if(mail($toEmail, $subject, $message, $headers)) {
-        $_SESSION['message'] = "Email mandata con successo a $toEmail!";
+        $_SESSION['message'] = "Email mandata con successo a $toEmail";
     } else {
         $_SESSION['message'] = "Invio email fallito a $toEmail.";
     }

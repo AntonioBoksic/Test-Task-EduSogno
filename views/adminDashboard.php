@@ -43,7 +43,7 @@ $user = $stmt->fetch();
                         <td><?= htmlspecialchars($event->id, ENT_QUOTES, 'UTF-8') ?></td>
                         <td><?= htmlspecialchars($event->nome_evento, ENT_QUOTES, 'UTF-8') ?></td>
                         <td><?= htmlspecialchars($event->data_evento, ENT_QUOTES, 'UTF-8') ?></td>
-                        <td><?= htmlspecialchars($event->attendees, ENT_QUOTES, 'UTF-8') ?></td>
+                        <td class="tabella-partecipanti"><?= htmlspecialchars($event->attendees, ENT_QUOTES, 'UTF-8') ?></td>
                         <td>
                             <a href="editEvent.php?id=<?= $event->id ?>">Modifica</a>
                             <a href="#" onclick="confirmDelete(<?= $event->id ?>,'<?= addslashes($event->nome_evento) ?>');">Elimina</a>

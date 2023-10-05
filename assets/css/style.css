@@ -7,7 +7,7 @@
 }
 
 header {
-    height: 140px;
+    height: 15vh;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -24,9 +24,14 @@ header {
     z-index: 100;
 }
 
+.logo{
+    width:10%;
+    height:50%;
+}
 .logo img {
-    max-width: 120px;
-    height: 50px;
+    width: 100%;
+    height: 100%;
+    min-width: 75px;
 }
 
 .nav {
@@ -50,7 +55,7 @@ header {
 
     .view-background {
     width: 100%;
-    height: calc( 100vh - 140px );
+    height: 85vh;
     background-color: #d9e5f3;
     }
 
@@ -112,8 +117,9 @@ header {
     .view-content{
         position: absolute;
         z-index: 50;
-        top: 140px;
+        top: 120px;
         width: 100%;
+        height: 85vh;
     }
 
 
@@ -150,7 +156,7 @@ header {
 
 
 h2{
-    font-size: 32px;
+    font-size: calc(28px + 1.3vw) ;
     color: #134077;
     text-align: center;
     margin-top: 30px;
@@ -263,10 +269,10 @@ button {
 }
 
 /* 
- */
- /* da qui in poi ADMINDASHBOARD */
+*/
+/* da qui in poi ADMINDASHBOARD */
 
- .table-container {
+.table-container {
     overflow-x: auto;
     width: 100%;
 }
@@ -304,5 +310,18 @@ a:hover {
     text-decoration: underline;
 }
 
+.tabella-partecipanti{
+    max-width: 350px;
+    overflow-x: auto;
+}
+
+/* messaggio per reset password */
+.message-for-pw-reset{
+    text-align: center;
+    color: black;
+    font-size: 20px;
+    padding-top: 15px;
+    font-weight: 500;
+}
 
 

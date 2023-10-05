@@ -22,24 +22,29 @@
 
 <h2>modifica l'evento <?php echo htmlspecialchars($event->nome_evento)?> </h2>
 
-<form action="../controllers/handleUpdateEvent.php" method="POST">
-    <label for="nome_evento">Nome Evento:</label>
-    <input type="text" id="nome_evento" name="nome_evento" value="<?= htmlspecialchars($event->nome_evento, ENT_QUOTES, 'UTF-8') ?>" required><br><br>
-    
-    <label for="data_evento">Data Evento:</label>
-    <input type="datetime-local" id="data_evento" name="data_evento" value="<?= htmlspecialchars($event->data_evento, ENT_QUOTES, 'UTF-8') ?>" required><br><br>
-    
-    <label for="attendees">Partecipanti:</label>
-    <input type="text" id="attendees" name="attendees" value="<?= htmlspecialchars($event->attendees, ENT_QUOTES, 'UTF-8') ?>" required><br><br>
-    
-    <!-- Aggiungi un campo nascosto per l'ID dell'evento, per poter identificare quale evento aggiornare -->
-    <input type="hidden" name="id" value="<?= htmlspecialchars($event->id, ENT_QUOTES, 'UTF-8') ?>">
-    
-    <input type="submit" value="Aggiorna Evento">
-</form>
+<div class="primary-flex">
+    <div class="container-form">
+
+        <form action="../controllers/handleUpdateEvent.php" method="POST">
+            <label for="nome_evento">Nome Evento:</label>
+            <input type="text" id="nome_evento" name="nome_evento" value="<?= htmlspecialchars($event->nome_evento, ENT_QUOTES, 'UTF-8') ?>" required><br><br>
+            
+            <label for="data_evento">Data Evento:</label>
+            <input type="datetime-local" id="data_evento" name="data_evento" value="<?= htmlspecialchars($event->data_evento, ENT_QUOTES, 'UTF-8') ?>" required><br><br>
+            
+            <label for="attendees">Partecipanti:</label>
+            <input type="text" id="attendees" name="attendees" value="<?= htmlspecialchars($event->attendees, ENT_QUOTES, 'UTF-8') ?>" required><br><br>
+            
+            <!--campo nascosto per l'ID dell'evento, per poter identificare quale evento aggiornare -->
+            <input type="hidden" name="id" value="<?= htmlspecialchars($event->id, ENT_QUOTES, 'UTF-8') ?>">
+            
+            <button type="submit">Modifica Evento</button>
+        </form>
+        
+    </div>
+</div>
 
 
-<!-- Includi eventuali JavaScript -->
 
 </div>
 </body>
