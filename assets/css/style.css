@@ -7,7 +7,7 @@
 }
 
 header {
-    height: 150px;
+    height: 140px;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -50,23 +50,36 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
 }
 
 .container-form {
-    text-align: center;
     border: 1px solid #134077;
     border-radius: 19px;
-    width: 350px;
-    height: 380px;
+    width: 25%;
+    padding: 15px;
 }
+
+
+.container-form label {
+    position: relative;
+    left: 0;
+}
+
+.container-form input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
 
 h2{
     font-size: 32px;
     color: #134077;
     text-align: center;
     margin-top: 30px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 label {
@@ -89,8 +102,20 @@ button {
     color: white;
     border-radius: 11px;
     padding: 10px;
-    margin: 10px 10px;
+    margin: 10px 0px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    ;
 }
+
+.container-form a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding:5px 0px;
+}
+
 
 
 /* per menù a tendina in header */
@@ -125,3 +150,39 @@ button {
 .menu-content a:hover {
     background-color: #f1f1f1;
 }
+
+
+/* da qui in poi è per pagina personalPage.php */
+.events-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.event-card {
+    background-color: #f8f8f8;
+    border: 1px solid #134077;
+    border-radius: 19px;
+    padding: 15px;
+    width: calc(33% - 20px);
+}
+
+.event-card h2 {
+    text-align: left;
+    margin-top: 0;
+    color: #231F20;
+    font-size: calc(13px + 1.3vw);
+}
+
+.event-card:hover {
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.event-date {
+    color: #CCCCCC;
+}
+
+
+

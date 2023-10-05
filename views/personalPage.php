@@ -23,17 +23,14 @@
     $events = $stmt->fetchAll();
 ?>
 
-
-    <h1>Welcome <?php echo htmlspecialchars($user['nome'] . ' ' . $user['cognome']); ?></h1>
-
-    <h2>Ciao <?php $user['nome'] ?> ecco i tuoi eventi</h2>
+    <h2>Ciao <?php echo htmlspecialchars($user['nome']) ?> ecco i tuoi eventi</h2>
 <div class="events-grid">
     <?php 
     if($events) {
         foreach($events as $event) {
             ?>
             <div class="event-card">
-                <h3 class="event-name"><?= htmlspecialchars($event['nome_evento']) ?></h3>
+                <h2 class="event-name"><?= htmlspecialchars($event['nome_evento']) ?></h2>
                 <p class="event-date"><?= htmlspecialchars($event['data_evento']) ?></p>
                 <button class="join-btn">Join</button>
             </div>

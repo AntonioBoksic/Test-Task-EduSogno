@@ -42,7 +42,7 @@
 
             </form>
 
-            <a href="login.php"> Hai già un account? Accedi</a>
+            <a class="alreadyRegistered" href="login.php"> Hai già un account? Accedi</a>
         </div>
 
     </div>
