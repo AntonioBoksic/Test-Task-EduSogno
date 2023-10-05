@@ -43,4 +43,17 @@ class EventController {
         return $stmt->execute([$event->id]);
     }
 
+    // questo mi serve per ottenere tutti i dati di un evento di cui gli passo l'id
+    public function find($id) {
+        $stmt = $this->pdo->prepare("SELECT * FROM eventi WHERE id = ?");
+        $stmt->execute([$id]);
+        $data = $stmt->fetch();
+        
+        if ($data) {
+            return new Event($data['id'], $data['nome_evento'], $data['attendees'], $data['data_evento']);
+        } else {
+            return null; // Nessun evento trovato
+        }
+    }
+
 }
