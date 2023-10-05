@@ -18,13 +18,14 @@
             </div>
 
             
-            <!-- campo per password -->
             <div class="form-group">
                 <label for="password">inserisci la password</label>
-                <div>
+                <div style="position:relative;">
                     <input type="password" id="password" name="password" placeholder="Scrivila qui" required>
+                    <img class="eye-icon" src="../assets/images/eye-icon.png" alt="Show Password" id="togglePassword">
                 </div>
             </div>
+
             
             <!-- messaggio di errore generico (per ragioni di sicurezza) in caso (1) email non esista o (2) email e password non corrispondono -->
             <?php

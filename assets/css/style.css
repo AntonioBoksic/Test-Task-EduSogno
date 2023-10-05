@@ -154,6 +154,16 @@ header {
     margin-top: 5px;
 }
 
+input{
+    font-size: 16px;
+    line-height: 20px;
+}
+
+input:focus {
+    outline: none;
+    border-bottom: 2px solid black;
+}
+
 
 h2{
     font-size: calc(28px + 1.3vw) ;
@@ -173,10 +183,6 @@ a{
     color: #2D224C;
 }
 
-input{
-    font-size: 16px;
-    line-height: 20px;
-}
 
 button {
     background-color: #0057FF;
@@ -328,5 +334,18 @@ a:hover {
     padding-top: 15px;
     font-weight: 500;
 }
+
+/* icona occhio per password */
+.eye-icon {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    cursor: pointer;
+    width: 20px;
+    color: blue;
+    transform: translateY(50%);
+}
+
+
 
 
