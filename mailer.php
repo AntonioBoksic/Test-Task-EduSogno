@@ -27,4 +27,19 @@ function sendResetEmail($toEmail, $token) {
     header('Location: http://localhost:8888/Test-Task-EduSogno/views/forgottenPassword.php');
     exit;
 }
+
+
+
+//qua gestiamo le mail da mandare in caso di aggiunta o modifica evento a tutti i partecipanti coinvolti
+function sendEventEmail($toEmails, $subject, $message) {
+    // Gli headers dell'email
+    $headers = 'From: webmaster@yourwebsite.com' . "\r\n" .
+               'Reply-To: webmaster@yourwebsite.com' . "\r\n" .
+               'X-Mailer: PHP/' . phpversion();
+
+    // Inviare l'email a ciascun partecipante
+    foreach($toEmails as $toEmail) {
+        mail($toEmail, $subject, $message, $headers);
+    }
+}
 ?>
