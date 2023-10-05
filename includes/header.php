@@ -1,4 +1,8 @@
 
+<!-- se questo header.php lo uso per tutte le view potrei anche eliminare session_start() da tutti gli altri file (?) -->
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,7 +30,6 @@
 
         <div class="nav">
             <?php
-            session_start();
             if(isset($_SESSION['user_id'])):
             ?>
                 <!-- Menù quando l'utente è loggato -->
