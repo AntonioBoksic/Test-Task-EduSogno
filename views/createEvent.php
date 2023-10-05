@@ -1,5 +1,14 @@
 <?php include '../includes/header.php'; ?>
 
+<?php
+// controlla se utente è loggato come admin
+if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
+    // Reindirizza l'utente alla pagina di login
+    header("Location: http://localhost:8888/Test-Task-EduSogno/views/login.php");
+    exit;
+}
+?>
+
 <h2>Crea un nuovo evento!</h2>
 
 <div class="primary-flex">

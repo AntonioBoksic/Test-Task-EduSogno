@@ -1,13 +1,13 @@
 <?php include '../includes/header.php'; ?>
 
 <!-- appena utente entra sulla pagina controllo se è loggato e se è admin, altrimento lo reindirizzo su login.php -->
-<?php
 
-// Verifico se l'utente è loggato e se è un amministratore
-if(!isset($_SESSION['user_id']) || !$_SESSION['is_admin']) {
-    // L'utente non è autenticato come admin: reindirizzarlo
-    header("Location: login.php");
-    exit();
+<?php
+// controlla se utente è loggato come admin
+if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
+    // Reindirizza l'utente alla pagina di login
+    header("Location: http://localhost:8888/Test-Task-EduSogno/views/login.php");
+    exit;
 }
 ?>
 

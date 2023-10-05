@@ -3,6 +3,8 @@
 // Imposto fuso orario di Roma
 date_default_timezone_set('Europe/Rome');
 
+start_session();
+
 // Includo il file di connessione al database
 include '../database.php'; 
 
@@ -54,6 +56,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $stmt = $pdo->prepare("UPDATE utenti SET password = :password, password_reset_token = NULL, password_reset_expires = NULL WHERE id = :id");
                 $stmt->execute([':password' => $hashedPassword, ':id' => $user['id']]);
                 
+                // mi salvo questo messaggio nella sessione in modo che io possa proteggere la view passwordResetSuccess in caso questo messaggio non sia presente nella sessione.
+                $_SESSION['password_reset_success'] = true;
                 // Reindirizza o informa l'utente del successo
                 header("Location: http://localhost:8888/Test-Task-EduSogno/views/passwordResetSuccess.php");
                 exit;

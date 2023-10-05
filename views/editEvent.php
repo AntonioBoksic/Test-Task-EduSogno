@@ -1,5 +1,14 @@
 <?php 
     include_once '../includes/header.php'; 
+
+    
+    // controlla se utente è loggato come admin
+    if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
+        // Reindirizza l'utente alla pagina di login
+        header("Location: http://localhost:8888/Test-Task-EduSogno/views/login.php");
+    exit;
+    }
+    
     include_once("../controllers/EventController.php");
     include_once("../models/Event.php");
     include_once("../database.php");
