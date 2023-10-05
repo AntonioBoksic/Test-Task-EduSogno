@@ -25,8 +25,49 @@
         </div>
 
         <div class="nav">
-            <a href="register.php">Register</a>
-            <a href="login.php">Login</a>
+            <?php
+            session_start();
+            if(isset($_SESSION['user_id'])):
+            ?>
+                <!-- Menù quando l'utente è loggato -->
+                <div class="hamburger-menu">
+                    <div class="hamburger" onclick="toggleMenu()">☰</div>
+                    <div class="menu-content" id="menu">
+
+                        <!-- link per admin Dashboard visibile solo se utente è admin -->
+                        <?php
+                            if(isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true):
+                            ?>
+
+                                <a href="adminDashboard.php">Admin Dashboard</a>
+
+                            <?php
+                            endif;
+                            ?>    
+                        
+                        
+                        <a href="personalPage.php">Personal Page</a>
+                        <a href="logout.php">Logout</a>
+                        
+                    </div>
+                </div>
+            <?php
+            else:
+            ?>
+                <!-- Link quando l'utente NON è loggato -->
+                <a href="register.php">Register</a>
+                <a href="login.php">Login</a>
+            <?php
+            endif;
+            ?>
         </div>
+
     </header>
+
+    <script>
+    function toggleMenu() {
+        var menu = document.getElementById("menu");
+        menu.style.display = menu.style.display === "block" ? "none" : "block";
+    }
+    </script>
 
