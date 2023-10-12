@@ -1,4 +1,4 @@
-<?php include '../includes/header.php'; ?>
+<?php include 'includes/header.php'; ?>
 
 <div class="primary-flex">
 
@@ -8,7 +8,7 @@
 
     
         
-        <form action="../controllers/loginController.php" method="POST">
+        <form action="controllers/loginController.php" method="POST">
             <!-- campo per email -->
             <div class="form-group">
                 <label for="email">inserisci l'email</label>
@@ -22,7 +22,7 @@
                 <label for="password">inserisci la password</label>
                 <div style="position:relative;">
                     <input type="password" id="password" name="password" placeholder="Scrivila qui" required>
-                    <img class="eye-icon togglePassword" src="../assets/images/eye-icon.png" alt="Show Password">
+                    <img class="eye-icon togglePassword" src="assets/images/eye-icon.png" alt="Show Password">
                 </div>
             </div>
 
@@ -44,11 +44,11 @@
         </form>
 
         <div>
-            <a href="register.php">Non hai un account? Registrati</a>
+            <a href="register">Non hai un account? Registrati</a>
         </div>
 
         <div>
-            <a href="forgottenPassword.php">Pasword Dimenticata?</a>
+            <a href="forgottenPassword">Pasword Dimenticata?</a>
         </div>
     </div>
 

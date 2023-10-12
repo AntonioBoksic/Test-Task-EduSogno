@@ -1,4 +1,4 @@
-<?php include '../includes/header.php'; ?>
+<?php include 'includes/header.php'; ?>
 
 <h2>
     Inserisci l'email per la quale hai dimenticato la password e ti verrà inviata una mail con un link per reimpostare la tua password.
@@ -8,7 +8,7 @@
 <div class="primary-flex">
     <div class="container-form">
 
-        <form action="../controllers/forgottenPasswordController.php" method="POST">
+        <form action="controllers/forgottenPasswordController.php" method="POST">
 
             <div class="form-group">
                 <label for="email">Email:</label>

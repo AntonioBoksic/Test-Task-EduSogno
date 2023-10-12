@@ -1,4 +1,4 @@
-<?php include '../includes/header.php'; ?>
+<?php include 'includes/header.php'; ?>
 
 <!-- appena utente entra sulla pagina controllo se è loggato e se è admin, altrimento lo reindirizzo su login.php -->
 
@@ -6,14 +6,14 @@
 // controlla se utente è loggato come admin
 if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
     // Reindirizza l'utente alla pagina di login
-    header("Location: http://localhost:8888/Test-Task-EduSogno/views/login.php");
+    header("Location: http://localhost:8888/Test-Task-EduSogno/login");
     exit;
 }
 ?>
 
 <?php 
-include("../controllers/EventController.php");
-include('../database.php');
+include("controllers/EventController.php");
+include('database.php');
 
 //recupero tutti gli eventi dal database
 $eventController = new EventController($pdo);
@@ -49,7 +49,7 @@ $user = $stmt->fetch();
                             </div>
                         </td>
                         <td>
-                            <a href="editEvent.php?id=<?= $event->id ?>">Modifica</a>
+                            <a href="editEvent?id=<?= $event->id ?>">Modifica</a>
                             <a href="#" onclick="confirmDelete(<?= $event->id ?>,'<?= addslashes($event->nome_evento) ?>');">Elimina</a>
 
                         </td>

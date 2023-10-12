@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['email'])) {
         // per poi verificarlo quando l'utente clicca sul link nel suo email
     } else {
         $_SESSION['message'] = "Email does not exist in our database.";
-        header('Location: http://localhost:8888/Test-Task-EduSogno/views/forgottenPassword.php');
+        header('Location: http://localhost:8888/Test-Task-EduSogno/forgottenPassword');
         exit;    }
 }
 

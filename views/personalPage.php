@@ -1,13 +1,13 @@
 
 <?php
-    include '../includes/header.php';
+    include 'includes/header.php';
 
-    include('../database.php');
-    include('../controllers/EventController.php');
+    include('database.php');
+    include('controllers/EventController.php');
 
     // Verifica se l'utente è loggato
     if(!isset($_SESSION['user_id'])) {
-        header("Location: login.php");
+        header("Location: login");
         exit();
     }
 

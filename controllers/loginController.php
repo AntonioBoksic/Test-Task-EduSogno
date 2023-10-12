@@ -28,10 +28,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['is_admin'] = $user['is_admin'] == 1 ? true : false;
             
             if($_SESSION['is_admin'] == true) {
-                header("Location: ../views/adminDashboard.php");
+                header("Location: ../adminDashboard");
             exit();
             } else {
-                header("Location: ../views/personalPage.php");
+                header("Location: ../personalPage");
                 exit(); 
             }
 
@@ -39,13 +39,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             // Password errata
             $_SESSION['error'] = "Password errata o email non trovata";
-            header("Location: ../views/login.php");
+            header("Location: ../login");
             exit();
         }
     } else {
         // L'email non esiste nel database
         $_SESSION['error'] = "Password errata o email non trovata";
-        header("Location: ../views/login.php");
+        header("Location: ../login");
         exit();
     }
 }

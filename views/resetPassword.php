@@ -1,7 +1,7 @@
-<?php include '../includes/header.php';
+<?php include 'includes/header.php';
 
 // Connessione al database
-include '../database.php';
+include 'database.php';
 
 //imposto il fuso orario di
 date_default_timezone_set('Europe/Rome');
@@ -49,11 +49,6 @@ if(isset($_GET['token'])) {
 }
 ?>
 
-<!-- Mostra il form di reimpostazione della password solo se il token è valido -->
-<!-- TODO: Aggiungi la logica per mostrare/nascondere il form in base alla validità del token -->
-<form method="POST" action="resetPasswordHandler.php">
-    
-</form>
 
 <?php if($isValidToken): ?>
     <!-- Mostra il modulo di reimpostazione della password -->

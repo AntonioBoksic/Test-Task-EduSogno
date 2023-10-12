@@ -1,4 +1,4 @@
-    <?php include '../includes/header.php'; ?>
+    <?php include 'includes/header.php'; ?>
 
     <div class="primary-flex">
 
@@ -8,7 +8,7 @@
         <div class="container-form">
 
         
-            <form action="../controllers/registerController.php" method="POST">
+            <form action="controllers/registerController.php" method="POST">
 
                 <div class="form-group">
                     <label for="nome">inserisci il nome</label>
@@ -35,7 +35,7 @@
                 <label for="password">inserisci la password</label>
                 <div style="position:relative;">
                     <input type="password" id="password" name="password" placeholder="Scrivila qui" required>
-                    <img class="eye-icon togglePassword" src="../assets/images/eye-icon.png" alt="Show Password">
+                    <img class="eye-icon togglePassword" src="assets/images/eye-icon.png" alt="Show Password">
                 </div>
             </div>
 
@@ -43,7 +43,7 @@
 
             </form>
 
-            <a class="alreadyRegistered" href="login.php"> Hai già un account? Accedi</a>
+            <a class="alreadyRegistered" href="login"> Hai già un account? Accedi</a>
         </div>
 
     </div>

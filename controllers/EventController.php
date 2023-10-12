@@ -1,6 +1,6 @@
 <?php
 include_once("../models/Event.php");
-include_once("../database.php");
+include_once("database.php");
 
 class EventController {
     private $pdo;

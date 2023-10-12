@@ -1,7 +1,7 @@
 <?php
 include_once("EventController.php");
-include_once("../models/Event.php");
-include_once("../database.php");
+include_once("models/Event.php");
+include_once("database.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $controller = new EventController($pdo);
     $controller->update($event);
     
-    header("Location: ../views/adminDashboard.php");
+    header("Location: adminDashboard");
 } else {
-    header("Location: editEvent.php");
+    header("Location: editEvent");
 }

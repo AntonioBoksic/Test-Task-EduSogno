@@ -1,17 +1,17 @@
 <?php 
-    include_once '../includes/header.php'; 
+    include_once 'includes/header.php'; 
 
     
     // controlla se utente è loggato come admin
     if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
         // Reindirizza l'utente alla pagina di login
-        header("Location: http://localhost:8888/Test-Task-EduSogno/views/login.php");
+        header("Location: http://localhost:8888/Test-Task-EduSogno/login");
     exit;
     }
     
-    include_once("../controllers/EventController.php");
-    include_once("../models/Event.php");
-    include_once("../database.php");
+    include_once("controllers/EventController.php");
+    include_once("models/Event.php");
+    include_once("database.php");
 
     $eventController = new EventController($pdo);
 
@@ -34,7 +34,7 @@
 <div class="primary-flex">
     <div class="container-form">
 
-        <form action="../controllers/handleUpdateEvent.php" method="POST">
+        <form action="controllers/handleUpdateEvent.php" method="POST">
             <label for="nome_evento">Nome Evento:</label>
             <input type="text" id="nome_evento" name="nome_evento" value="<?= htmlspecialchars($event->nome_evento, ENT_QUOTES, 'UTF-8') ?>" required><br><br>
             

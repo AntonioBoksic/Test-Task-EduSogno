@@ -24,7 +24,7 @@ function sendResetEmail($toEmail, $token) {
     }
     
     // Reindirizza l'utente a forgottenPassword.php
-    header('Location: http://localhost:8888/Test-Task-EduSogno/views/forgottenPassword.php');
+    header('Location: http://localhost:8888/Test-Task-EduSogno/forgottenPassword');
     exit;
 }
 

@@ -1,6 +1,4 @@
 <?php
-// Inizio la sessione se non è già stata avviata
-session_start();
 
 // Distruggo tutte le variabili di sessione
 $_SESSION = array();
@@ -18,7 +16,7 @@ if (ini_get("session.use_cookies")) {
 // Distruggo la sessione.
 session_destroy();
 
-// Reindirizzo l'utente alla pagina di login o alla homepage
-header("Location: login.php");
+// reindirizzo l'utente alla pagina di login
+header("Location: login");
 exit();
 ?>
